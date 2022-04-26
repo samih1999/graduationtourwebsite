@@ -9,11 +9,7 @@ using System.Threading.Tasks;
 
 namespace graduationtourwebsite
 {
-<<<<<<< HEAD
-  
-=======
-   
->>>>>>> b64d60ae6e4c9182c2c03e5b01a0ab7de9552159
+
     public class Program
     {
         public static void Main(string[] args)
