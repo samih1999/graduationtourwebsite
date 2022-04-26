@@ -23,6 +23,16 @@ namespace graduationtourwebsite.Controllers
             return View();
         }
 
+        public IActionResult aboutus()
+        {
+
+            return View();
+        } 
+        
+
+
+     
+
         public IActionResult Privacy()
         {
             return View();
