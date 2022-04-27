@@ -73,7 +73,9 @@
           <li class="nav-item">
             <a class="nav-link " href="contact.html">Contact</a>
           </li>
+
         </ul>
+        <partial name="_LoginPartial" />
       </div>
 
       <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
@@ -255,6 +257,6 @@
   <!-- Template Main JS File -->
   <script src="~/assets/js/main.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
-</body>
+ @await RenderSectionAsync("Scripts", required: false)
+ </body>
 </html>
