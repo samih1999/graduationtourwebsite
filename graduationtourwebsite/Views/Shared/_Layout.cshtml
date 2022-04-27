@@ -41,15 +41,15 @@
         <span></span>
       </button>
       
-     <img src="~/assets/img/GP1_LOGO1.png" alt="" height="60px" width="60px"> 
+   <a   asp-controller="Home" asp-action="Index"> <img src="~/assets/img/GP1_LOGO1.png" alt="" height="60px" width="60px " /></a>
 
-      <a class="navbar-brand text-brand" href="index.html">Tour<span class="color-b">Guide</span></a>
+      <a class="navbar-brand text-brand"  asp-controller="Home" asp-action="Index" >Tour<span class="color-b">Guide</span></a>
 
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+            <a class="nav-link " asp-controller="Home" asp-action="Index">Home</a>
           </li>
 
           <li class="nav-item">
@@ -70,7 +70,7 @@
           </li>
 
         </ul>
-        <partial name="_LoginPartial" />
+        
       </div>
 
       <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
@@ -78,6 +78,8 @@
       </button>
 
     </div>
+
+    <partial name="_LoginPartial" />
   </nav><!-- End Header/Navbar -->
     </header>
     <div class="container">
