@@ -6,12 +6,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication6.Models;
 
 namespace graduationtourwebsite.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
+        touguidecontext _context;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -27,11 +30,29 @@ namespace graduationtourwebsite.Controllers
         {
 
             return View();
-        } 
-        
+        }
+
+        public IActionResult contactus()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult contactus(string ?name, string subject,string email,string message)
+        {
+            
+            contact contact = new contact { 
+            FullName = name,    
+            Subject = subject,  
+            Message = message,
+            EMail= email,
+            PhoneNumber=null,
+
+            };
+            return View();
+        }
 
 
-     
 
         public IActionResult Privacy()
         {
