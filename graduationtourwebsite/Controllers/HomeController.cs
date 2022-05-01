@@ -16,8 +16,10 @@ namespace graduationtourwebsite.Controllers
 
         touguidecontext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger,touguidecontext tor)
         {
+            _context = tor;
             _logger = logger;
         }
 
@@ -38,18 +40,21 @@ namespace graduationtourwebsite.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult contactus(string ?name, string subject,string email,string message)
+        public IActionResult contactus (string ?name, string subject,string email,string message)
         {
             
-            contact contact = new contact { 
+            contact con = new contact { 
             FullName = name,    
             Subject = subject,  
             Message = message,
             EMail= email,
-            PhoneNumber=null,
+            PhoneNumber="1",
 
             };
-            return View();
+            _context.Add(con);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
 
