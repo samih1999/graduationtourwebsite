@@ -9,6 +9,7 @@
 
 
 
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -31,7 +32,7 @@
   <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="~/assets/css/style.css" rel="stylesheet">
+  <link href="~/assets/css/style - Copy.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: EstateAgency - v4.7.0
@@ -45,12 +46,16 @@
 
 
 
-<h1>@ViewData["Title"]</h1>
+
 <div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
+   
+
+
+      <form class="modal-content animate" id="account" method="post">
+    <div class="imgcontainer">
+      <img src="~/assets/img/GP1_LOGO1.png" alt="" height="80px" width="80px " >
+    </div>
+
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
@@ -58,49 +63,46 @@
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+
+
+      <div class="form-group">
                     <label asp-for="Input.Password"></label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
+
+
+        
+
+
+      <button type="submit">Login</button>
+      <label>
+       <input asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+
+      </label>
+
+
+    <div class="container" style="background-color:#f1f1f1">
+
+      <p class="psw"> <a id="forgot-password"  asp-page="./ForgotPassword">Forgot password?</a></p>
+      <p class="psw"> <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a> </p>
+       <p class="psw"><a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a> </p>
+
     </div>
+
+  </form>
+
+       
+  
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h4>Use another service to log in.</h4>
+           
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
+                  
                 }
                 else
                 {
