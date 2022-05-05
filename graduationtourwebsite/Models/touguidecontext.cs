@@ -13,7 +13,7 @@ namespace WebApplication6.Models
 
         }
 
-        public DbSet<feedback> feedbacks { get; set; }
+        public DbSet<feedback> feedbacks { get; set; }     
         public DbSet<payment> payments { get; set; }
         public DbSet<place> places { get; set; }
         public DbSet<contact> Contacts { get; set; }
