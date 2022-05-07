@@ -43,7 +43,8 @@ namespace graduationtourwebsite
 
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
         }
 
