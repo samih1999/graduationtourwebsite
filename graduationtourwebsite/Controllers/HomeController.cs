@@ -34,6 +34,12 @@ namespace graduationtourwebsite.Controllers
             return View();
         }
 
+        public IActionResult Places()
+        {
+
+            return View();
+        }
+
         public IActionResult contactus()
         {
 
