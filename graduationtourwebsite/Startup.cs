@@ -1,4 +1,5 @@
 using graduationtourwebsite.Data;
+using graduationtourwebsite.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,10 +43,13 @@ namespace graduationtourwebsite
 
 
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<ApplicationUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            .AddDefaultTokenProviders()
+            .AddDefaultUI()
+                .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
