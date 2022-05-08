@@ -40,6 +40,12 @@ namespace graduationtourwebsite.Controllers
             return View();
         }
 
+        public IActionResult All_tourguides()
+        {
+
+            return View();
+        }
+
         public IActionResult contactus()
         {
 
