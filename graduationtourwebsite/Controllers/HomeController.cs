@@ -52,7 +52,7 @@ namespace graduationtourwebsite.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult contactus (string ?name, string subject,string email,string message)
+        public IActionResult contactus (string ?name, string subject,string email,string message,string phonenumber)
         {
             
             contact con = new contact { 
@@ -60,7 +60,7 @@ namespace graduationtourwebsite.Controllers
             Subject = subject,  
             Message = message,
             EMail= email,
-            PhoneNumber="1",
+            PhoneNumber=phonenumber,
 
             };
             _context.Add(con);
