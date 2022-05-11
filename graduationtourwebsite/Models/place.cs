@@ -1,4 +1,4 @@
-﻿namespace WebApplication6.Models
+﻿namespace graduationtourwebsite.Models
 {
     public class place
     {

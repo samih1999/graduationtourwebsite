@@ -10,8 +10,8 @@ using graduationtourwebsite.Models;
 namespace graduationtourwebsite.Migrations
 {
     [DbContext(typeof(touguidecontext))]
-    [Migration("20220425133429_create")]
-    partial class create
+    [Migration("20220511220933_databaserebuild")]
+    partial class databaserebuild
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,19 +21,34 @@ namespace graduationtourwebsite.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WebApplication6.Models.contact", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("EMail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.contact_us", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.contact_us", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +60,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("contact_Us");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.feedback", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.feedback", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,7 +75,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("feedbacks");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.payment", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.payment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,7 +93,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("payments");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.place", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.place", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -104,7 +119,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("places");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.tour", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.tour", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,16 +134,16 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("tours");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.place", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.place", b =>
                 {
-                    b.HasOne("WebApplication6.Models.tour", "t")
+                    b.HasOne("graduationtourwebsite.Models.tour", "t")
                         .WithMany("places")
                         .HasForeignKey("tId");
 
                     b.Navigation("t");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.tour", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.tour", b =>
                 {
                     b.Navigation("places");
                 });

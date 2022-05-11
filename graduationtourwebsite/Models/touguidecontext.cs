@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication6.Models
+namespace graduationtourwebsite.Models
 {
 
 
@@ -18,7 +18,9 @@ namespace WebApplication6.Models
         public DbSet<place> places { get; set; }
         public DbSet<contact> Contacts { get; set; }
         public DbSet<contact_us> contact_Us { get; set; }
-        public DbSet<tour> tours { get; set; }
-    
+      
+         public DbSet<tour> tours { get; set; }
+
     }
+   
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication6.Models;
+using graduationtourwebsite.Models;
 
 namespace graduationtourwebsite.Controllers
 {

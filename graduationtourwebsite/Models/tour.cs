@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebApplication6.Models
+namespace graduationtourwebsite.Models
 {
     public class tour
     {

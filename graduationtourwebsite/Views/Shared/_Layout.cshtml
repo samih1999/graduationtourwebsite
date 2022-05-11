@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -60,8 +65,11 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tour</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item " asp-controller="Home" asp-action="Places">Best Places</a>
-              <a class="dropdown-item " href="blog-single.html">Create My Tour</a>
+                                @if (SignInManager.IsSignedIn(User) == true && User.IsInRole("Admin"))
+                                {
+                                    <a class="dropdown-item " asp-controller="Home" asp-action="Places">Best Places</a>
+                                }
+                                <a class="dropdown-item " href="blog-single.html">Create My Tour</a>
               <a class="dropdown-item " href="agents-grid.html">Our Tour Guides</a>
               <a class="dropdown-item " asp-controller="Home" asp-action="contactus">Be Tour Guide</a> 
             </div>

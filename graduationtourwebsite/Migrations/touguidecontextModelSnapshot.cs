@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApplication6.Models;
+using graduationtourwebsite.Models;
 
 namespace graduationtourwebsite.Migrations
 {
@@ -19,7 +19,7 @@ namespace graduationtourwebsite.Migrations
                 .HasAnnotation("ProductVersion", "5.0.16")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WebApplication6.Models.contact", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -46,7 +46,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.contact_us", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.contact_us", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,7 +58,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("contact_Us");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.feedback", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.feedback", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("feedbacks");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.payment", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.payment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -91,7 +91,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("payments");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.place", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.place", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -117,7 +117,7 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("places");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.tour", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.tour", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -132,16 +132,16 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("tours");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.place", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.place", b =>
                 {
-                    b.HasOne("WebApplication6.Models.tour", "t")
+                    b.HasOne("graduationtourwebsite.Models.tour", "t")
                         .WithMany("places")
                         .HasForeignKey("tId");
 
                     b.Navigation("t");
                 });
 
-            modelBuilder.Entity("WebApplication6.Models.tour", b =>
+            modelBuilder.Entity("graduationtourwebsite.Models.tour", b =>
                 {
                     b.Navigation("places");
                 });

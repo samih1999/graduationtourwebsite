@@ -13,8 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApplication6.Models;
-
+using graduationtourwebsite.Models;
 namespace graduationtourwebsite
 {
     public class Startup
