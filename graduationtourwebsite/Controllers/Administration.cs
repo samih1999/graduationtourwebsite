@@ -1,10 +1,12 @@
 ﻿using graduationtourwebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace graduationtourwebsite.Controllers
-{
+{ [Authorize (Roles ="Admin")]
     public class Administration : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -32,6 +34,13 @@ namespace graduationtourwebsite.Controllers
                 }
             }
             return View(model);
+        }
+
+
+        public async Task<IActionResult> index()
+        {
+            var roles = await roleManager.Roles.ToListAsync();
+            return View(roles);
         }
 
 
