@@ -44,5 +44,15 @@ namespace graduationtourwebsite.Controllers
         }
 
 
+        public IActionResult Index_admin()
+        {
+            return View();
+        }
+
+
+        public IActionResult widgets()
+        {
+            return View();
+        }
     }
 }
