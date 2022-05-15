@@ -20,6 +20,7 @@ namespace graduationtourwebsite.Models
         public DbSet<contact_us> contact_Us { get; set; }
       
          public DbSet<tour> tours { get; set; }
+        public DbSet<TourGuideREGMod> TGReg { get; set; }
 
     }
    

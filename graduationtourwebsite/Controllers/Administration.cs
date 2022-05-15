@@ -42,8 +42,6 @@ namespace graduationtourwebsite.Controllers
             var roles = await roleManager.Roles.ToListAsync();
             return View(roles);
         }
-
-
         public IActionResult Index_admin()
         {
             return View();
@@ -54,5 +52,6 @@ namespace graduationtourwebsite.Controllers
         {
             return View();
         }
+
     }
 }

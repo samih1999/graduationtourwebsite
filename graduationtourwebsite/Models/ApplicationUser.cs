@@ -11,5 +11,6 @@ namespace graduationtourwebsite.Models
         [Required, MaxLength(20)]
         public string LastName { get; set; }
 
+
     }
 }

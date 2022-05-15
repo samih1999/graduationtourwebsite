@@ -7,9 +7,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using graduationtourwebsite.Models;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace graduationtourwebsite.Controllers
 {
+   
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -39,13 +42,35 @@ namespace graduationtourwebsite.Controllers
 
             return View();
         }
+        
 
         public IActionResult All_tourguides()
         {
 
             return View();
         }
+        public IActionResult TG_REG()
+        {
 
+            return View();
+        }
+        [HttpPost]
+        public IActionResult TG_REG(string firstname, string lastname, string email, string phonenumber, string cv)
+        {
+            TourGuideREGMod TGREG = new TourGuideREGMod()
+            {
+                FirstName = firstname,
+                LastName = lastname,
+                EMail = email,
+                PhoneNumber = phonenumber,
+                CvLink = cv,
+
+            };
+            _context.Add(TGREG);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
         public IActionResult contactus()
         {
 
