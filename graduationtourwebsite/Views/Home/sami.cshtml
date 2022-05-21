@@ -1,0 +1,58 @@
+﻿@model tour
+
+
+@using(Html.BeginForm())
+{
+    <br />
+    @Html.EditorFor(model=> model.FromDate,new {HtmlAttributes=new {@class ="datepicker"}})
+
+
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        DateTimePicker();
+        $("#txtFromDate").change(function() {
+            var date2 = $("#txtFromDate").datepicker('getDate', '+1d');
+            console.log(date2);
+            date2.setDate(date2.getDate() + 1);
+            $("#txtToDate").datepicker('option', 'minDate', date2);
+            $("#txtToDate").datepicker('setDate', date2);
+        });
+ 
+        $("#btnSave").click(function() {
+            alert($("#txtFromDate").val());
+            alert($("#txtToDate").val());
+            var objStudentModel = { FromDate: $("#txtFromDate").val(), ToDate: $("#txtToDate").val() };
+            $.ajax({
+                async: true,
+                type: 'POST',
+                dataType: 'JSON',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(objStudentModel),
+                success: function() {
+                    alert('da');
+                },
+                error: function() {
+ 
+                }
+            });
+        });
+    });
+ 
+    function DateTimePicker() {
+        $(".datepicker").datepicker({
+            dateFormat: 'dd-M-yy',
+            changeMonth: true,
+            changeYear: true,
+            showOn: 'button',
+            sideBySide : true,
+            controlType: 'select',         
+            buttonText: '<span class="glyphicon glyphicon-calendar" ></span>',
+            minDate: new Date()
+        });
+    }
+ 
+</script>

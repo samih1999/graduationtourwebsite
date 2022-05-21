@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "_layout";
 }
-
+@model IEnumerable<graduationtourwebsite.Models.place> 
 <html>
 
 <head>
@@ -22,122 +22,27 @@
 <br>
 
 <main class="grid">
- 
-   
-    
-  <article>
-    <img src="~/assets/img/Petra/1.jpg" alt="Petra">
+
+        @foreach(var p in Model)
+        {
+
+
+
+        <article>
+
+    <img src=~/assets/img/@p.name/1.jpg alt="petra">
     <div class="text">
-      <h3>Camels in front of Treasury Building, Petra</h3>
-      <p>The ancient city of Petra is carved into the massive red mountains that surround it, and is one of the great wonders of the world. As the capital city of the Nabateans, Petra served as an integral trade junction that linked Arabia, Egypt, Syria, Greece, and Rome. This UNESCO World Heritage Site is among the world’s most famous archaeological sites for its combination of ancient Eastern traditions and Hellenistic architecture. Visitors won’t want to miss the Al Kzahneh, the city’s most elaborate temple, carved out of a sandstone rock face and standing 43m high.</p>
-      <button class='btn-bot' onclick="window.open('https://en.wikipedia.org/wiki/Petra' ,'_blank') ;">See More</button>
-   <button >Book now</button>
+        <br>
+        <h3>@p.name</h3>
+        <br>
+      <h3>@p.aboutplace</h3>
+      <p>@p.description</p>
+      <button class='btn-bot' onclick="window.open('@p.moreinfoURL' ,'_blank') ;">See More</button>
+   <button  >Book now</button>
   </div>
   </article>
+}
 
-  <article>
-    <img src="~/assets/img/Amman/1.jpg" alt="Amman">
-    <div class="text">
-      <h3>Ampitheatre in Amman</h3>
-      <p>Amman, the capital city of Jordan, is home to almost half of the country’s population, as well as Roman ruins, friendly nightlife, ancient souks, luxurious hotels and modern shopping malls. Travellers are welcomed by the multi-cultural, friendly, and hospitable people of Amman.</p>
-       <button onclick="window.open('https://en.wikipedia.org/wiki/Amman' ,'_blank') ;">See More</button>
-   <button>Book now</button>
-   </div>
-  </article>
-
-  <article>
-    <img src="~/assets/img/Wadi Rum/1.jpg" alt="Wadi Rum">
-    <div class="text">
-      <h3>Take a camel ride through Wadi Rum</h3>
-      <p>Remember the film “Lawrence of Arabia?” It was partially filmed in the stark Wadi Rum desert. Also known as The Valley of the Moon, Wadi Rum offers travellers an escape from the ordinary and a space for solitude. With vast open desert and rock formations that reach heights of up to 1,750m, Wadi Rum is a natural paradise for hikers and mountaineers.</p>
-        <button onclick="window.open('https://en.wikipedia.org/wiki/Wadi Rum' ,'_blank') ;">See More</button>
-   <button>Book now</button>
-    </div>
-  </article>
-
-  <article>
-    <img src="~/assets/img/Jerash/1.jpg" alt="Jerash">
-    <div class="text">
-      <h3>Ancient ruins of Jerash</h3>
-      <p>The ancient city of Jerash houses some of the best preserved Roman architecture in the world. Located 48 kilometres north of the capital Amman, Jerash was once a city of great wealth. Now a modern city bursting with colourful fruit stalls, passing through Jerash’s ancient city boundaries gives an amazing glimpse into ancient life under the rule of an emperor.</p>
-       <button onclick="window.open('https://en.wikipedia.org/wiki/Jerash' ,'_blank') ;">See More</button>
-   <button>Book now</button>
-   </div>
-  </article>
-
-  <article>
-    <img src="~/assets/img/Mount Nebo/1.jpg" alt="Mount Nebo">
-    <div class="text">
-      <h3>Mount Nebo lookout</h3>
-      <p>Located 10 kilometres northwest of Mabada, Mount Nebo has long held significance as a place of religious pilgrimage. Christian tradition tells of Moses being buried on the mountain, although the exact location of his burial is unspecified. The summit of Mount Nebo offers a magnificent view of the Holy Land and the scenic valley of the River Jordan.</p>
-       <button onclick="window.open('https://en.wikipedia.org/wiki/Mount Nebo' ,'_blank') ;">See More</button>
-    <button>Book now</button>
-   </div>
-  </article>
-
-  <article>
-    <img src="~/assets/img/Aqaba/1.jpg" alt="Aqaba">
-    <div class="text">
-      <h3>Seaside view of Aqaba and the Red Sea</h3>
-      <p>Famed for its preserved coral reefs and unique sea life, this ancient Red Sea port city is home to the Mameluk Fort, used as a khan (travellers’ inn) for pilgrims on their way to Mecca. The beautiful fort is marked with various inscriptions marking the latter period of the Islamic dynasty. In Aqaba, visit ancient, mud-brick Ayla (Ancient Church), which is the oldest, purpose-built church in the world. Aqaba also hosts the house of Sharif Hussein Bin Ali, the great grandfather of King Abdullah II.</p>
-       <button onclick="window.open('https://en.wikipedia.org/wiki/Aqaba' ,'_blank') ;">See More</button>
-    <button>Book now</button>
-   </div>
-  </article>
-
-<article>
-    <img src="~/assets/img/Ajloun/1.jpg" alt="Ajloun">
-    <div class="text">
-      <h3>Inside Ajloun Fortress</h3>
-      <p>Venture back to the time of the Crusades with a trip to Ajloun Castle, a stunning Islamic fortress located on the top of a mountain. The castle is a fascinating maze of passages and levels, and offers wonderful panoramic views of the Jordan Valley and the highlands of north Jordan. The castle is one of the best preserved and most complete examples of medieval Arab-Islamic military architecture in the world.</p>
-        <button onclick="window.open('https://en.wikipedia.org/wiki/Ajloun' ,'_blank') ;">See More</button>
-    <button>Book now</button>
-    </div>
-  </article>
-
-<article>
-    <img src="~/assets/img/The King’s Highway/1.jpg" alt="The King’s Highway">
-    <div class="text">
-      <h3>Travel through massive canyons on the King’s Highway</h3>
-      <p>The trip south from Amman along the 5,000-year-old King’s Highway is one of the most memorable journeys in the Holy Land. Take a road trip of epic proportions as you pass a string of world-class ancient sites. The 335km (207 mile) King’s Highway winds its way past prehistoric villages from the Stone Age, biblical towns, Crusader Castles, Christian Byzantine mosaics, Roman fortresses, and the rock-cut Nabataean capital of Petra. The highway passes through different ecological zones of the country, including forested highlands, open farmland plateaus, deep ravines, the edge of the Eastern Desert, and the warm Gulf of Aqaba.</p>
-        <button onclick="window.open('https://en.wikipedia.org/wiki/King%27s_Highway_(ancient)' ,'_blank') ;">See More</button>
-    <button>Book now</button>
-    </div>
-  </article>
-
-<article>
-    <img src="~/assets/img/Madaba/1.jpg" alt="Madaba">
-    <div class="text">
-      <h3>Madaba’s Mosaic Map</h3>
-      <p>“The City of Mosaics” is home to the famous 6th century mosaic map of Jerusalem and the Holy Land. With two million pieces of coloured stone, the map depicts hills and valleys, villages and towns as far as the Nile Delta. Hundreds of beautiful mosaics from the 5th through the 7th centuries are scattered throughout Madaba’s churches and homes.</p>
-        <button onclick="window.open('https://en.wikipedia.org/wiki/Madaba' ,'_blank') ;">See More</button>
-   <button>Book now</button>
-    </div>
-  </article>
-
-<article>
-    <img src="~/assets/img/Um er-Rasas (Kastrom Mefa’a)/1.jpg" alt="Um er-Rasas (Kastrom Mefa’a)">
-    <div class="text">
-      <h3>Roman ruins at Um Ar Rasas</h3>
-      <p>This archaeological site started as a Roman military camp and grew to become a town from the 5th century. It contains remains from the Roman, Byzantine, and Early Muslim periods (end of 3rd to 9th centuries AD) and a fortified Roman military camp. The site was declared a World Heritage Site in 2004.</p>
-       <button onclick="window.open('https://en.wikipedia.org/wiki/Um er-Rasas' ,'_blank') ;">See More</button>
-   <button>Book now</button>
-   </div>
-  </article>
-
-<article>
-    <img src="~/assets/img/Umm Qais/1.jpg" alt="Umm Qais">
-    <div class="text">
-      <h3>Umm Qais</h3>
-      <p>Present day Umm Qais has within it the remains of one of the ancient Decapolis cities, the Greco-Roman settlement of Gadara.
-
-Umm Qais still has remnants of Gadara including a theater, churches, shops, a nymphaeum, baths, and paved roads. One interesting part of the sites in Umm Qais is that many of the structures, such as the theater, were made out of black basalt. There are also Byzantine-era elements built atop the original Roman ruins.</p>
-        <button onclick="window.open('https://en.wikipedia.org/wiki/Umm Qais' ,'_blank') ;">See More</button>
-  <button>Book now</button>
-    </div>
-  </article>
-
-  
 
 </main>
 </body>
@@ -169,7 +74,7 @@ background:#ffffff;
  border-radius:50px;
  text-transform:uppercase;
  letter-spacing:0.03em;
-  
+
   }
 
 

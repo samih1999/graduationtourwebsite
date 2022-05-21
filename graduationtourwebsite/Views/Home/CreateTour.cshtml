@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ApplicationUser>
+    <div class="title-box-d">
+      <h3 class="title-d">Create Tour</h3>
+    </div>
+   
+      <form class="form-a">
+        <div class="row">
+         
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="Type">TourGuide</label>
+              
+              <select class="form-control form-select form-control-a" id="Type">
+               @foreach (var user in Model)
+              {
+                    <option>@user.FirstName</option>
+              }
+                                 
+                    
+               
+                 
+                
+            
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label class="pb-2" for="city">Place</label>
+              <select class="form-control form-select form-control-a" id="city">
+                <option>All City</option>
+                <option>Alabama</option>
+                <option>Arizona</option>
+                <option>California</option>
+                <option>Colorado</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+             <label for="Start Date">Start Date:</label>
+           <input type="date" id="birthday" name="Start Date">
+             <input type="submit">
+
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label for="End Date">End Date:</label>
+         <input type="date" id="End Date" name="End Date">
+           <input type="submit">
+
+            </div>
+
+
+          </div>
+          
+          
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-b">Create tour</button>
+          </div>
+        </div>
+      </form>
+   
