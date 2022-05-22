@@ -1,11 +1,11 @@
 ﻿@{
     Layout = "_layout";
 }
-@model IEnumerable<graduationtourwebsite.Models.place> 
+@model IEnumerable<ApplicationUser>
 <html>
 
 <head>
-<title>Places</title>
+<title>Our TourGuides</title>
 
 </head>
 <body>
@@ -16,29 +16,27 @@
 <br>
 <br>
 <br>
-<div><center><h3>Top Fascinating Historic Places in Jordan</h3></center></div>
+<div><center><h3>The best tour guide you can have in Jordan</h3></center></div>
 <br>
 <br>
 <br>
 
 <main class="grid">
 
-        @foreach(var p in Model)
-        {
-
-
-
+        @foreach (var user in Model)
+              {
+                    
         <article>
 
-    <img src=~/assets/img/@p.name/1.jpg alt="petra">
     <div class="text">
         <br>
-        <h3>@p.name</h3>
+        <h3>@user.FirstName @user.LastName</h3>
         <br>
-      <h3>@p.aboutplace</h3>
-      <p>@p.description</p>
-      <button class='btn-bot' onclick="window.open('@p.moreinfoURL' ,'_blank') ;">See More</button>
-   @*<button  >Book now</button>*@
+      <h3>@user.PhoneNumber</h3>
+      <p>@user.Email</p>
+      @*
+   <button class='btn-bot' onclick="window.open('@p.moreinfoURL' ,'_blank') ;" >Book now</button>*@
+   @*<button class='btn-bot' type="submit" asp-controller="Home" asp-action="CreateTour" >Book</button>*@
    <a class='btn-bot'    asp-controller="Home" asp-action="CreateTour"  >Create My Tour</a>
   </div>
   </article>

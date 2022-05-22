@@ -1,4 +1,7 @@
-﻿@model IEnumerable<ApplicationUser>
+﻿
+
+@model IEnumerable<ApplicationUser>
+
     <div class="title-box-d">
       <h3 class="title-d">Create Tour</h3>
     </div>
@@ -14,9 +17,10 @@
                @foreach (var user in Model)
               {
                     <option>@user.FirstName</option>
+                    
               }
                                  
-                    
+              
                
                  
                 
@@ -27,13 +31,16 @@
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="city">Place</label>
+              
               <select class="form-control form-select form-control-a" id="city">
-                <option>All City</option>
-                <option>Alabama</option>
+               
+                  <option>All City</option>
+                  <option>Alabama</option>
                 <option>Arizona</option>
                 <option>California</option>
                 <option>Colorado</option>
               </select>
+             
             </div>
           </div>
           <div class="col-md-6 mb-2">

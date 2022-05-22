@@ -47,7 +47,24 @@ namespace graduationtourwebsite.Controllers
 
             return View();
         }
+       
+        public async Task<IActionResult> ourtourguides()
+        {
 
+            //var item = _db.Users.Include(e=> e.Id.)
+
+
+            var Users = _userManager.Users;
+            var userst = await (from user in _db.Users
+                                join userRole in _db.UserRoles
+                                on user.Id equals userRole.UserId
+                                join role in _db.Roles
+                                on userRole.RoleId equals role.Id
+                                where role.Name == "tourguide"
+                                select user).ToListAsync();
+
+            return View(userst);
+        }
         public async Task<IActionResult> Places()
         {
 
