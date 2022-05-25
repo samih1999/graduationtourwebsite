@@ -186,14 +186,21 @@ namespace graduationtourwebsite.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateTour(tour t)
+        public async Task<IActionResult> CreateTour(DateTime from, DateTime to , string tourguide , string p)
         {
+            tour t = new tour
+            {
+                tourguides = tourguide,
 
-            //var item = _db.Users.Include(e=> e.Id.)
+                FromDate = from,
+                ToDate= to,
+                plces=p
 
+            };
+            _context.Add(t);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
 
-          
-            return View();
         }
 
 

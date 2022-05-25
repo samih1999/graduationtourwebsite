@@ -6,17 +6,17 @@
       <h3 class="title-d">Create Tour</h3>
     </div>
    
-      <form class="form-a">
+      <form class="form-a" method="post">
         <div class="row">
          
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label class="pb-2" for="Type">TourGuide</label>
               
-              <select class="form-control form-select form-control-a" id="Type">
+              <select class="form-control form-select form-control-a" id="tourguide" name="tourguide"> 
                @foreach (var user in Model.Item1)
               {
-                    <option>@user.FirstName</option>
+                    <option >@user.FirstName @user.LastName</option>
                     
               }
                                  
@@ -32,10 +32,10 @@
             <div class="form-group mt-3">
               <label class="pb-2" for="city">Place</label>
               
-              <select class="form-control form-select form-control-a" id="city">
+              <select class="form-control form-select form-control-a"  id="p" name="p">
                     @foreach (var i in Model.Item2)
               {
-                    <option>@i.name</option>
+                    <option >@i.name </option >
                     
               }
                   
@@ -45,17 +45,17 @@
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-             <label for="Start Date">Start Date:</label>
-           <input type="date" id="birthday" name="Start Date">
-             <input type="submit">
+             <label for="to">Start Date:</label>
+           <input type="date" id="from" name="from">
+            
 
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-              <label for="End Date">End Date:</label>
-         <input type="date" id="End Date" name="End Date">
-           <input type="submit">
+              <label for="to">End Date:</label>
+         <input type="date" id="to" name="to">
+           
 
             </div>
 
