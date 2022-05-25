@@ -1,6 +1,6 @@
 ﻿
 
-@model IEnumerable<ApplicationUser>
+@model Tuple<List<ApplicationUser>, List<place>>
 
     <div class="title-box-d">
       <h3 class="title-d">Create Tour</h3>
@@ -14,7 +14,7 @@
               <label class="pb-2" for="Type">TourGuide</label>
               
               <select class="form-control form-select form-control-a" id="Type">
-               @foreach (var user in Model)
+               @foreach (var user in Model.Item1)
               {
                     <option>@user.FirstName</option>
                     
@@ -33,12 +33,12 @@
               <label class="pb-2" for="city">Place</label>
               
               <select class="form-control form-select form-control-a" id="city">
-               
-                  <option>All City</option>
-                  <option>Alabama</option>
-                <option>Arizona</option>
-                <option>California</option>
-                <option>Colorado</option>
+                    @foreach (var i in Model.Item2)
+              {
+                    <option>@i.name</option>
+                    
+              }
+                  
               </select>
              
             </div>

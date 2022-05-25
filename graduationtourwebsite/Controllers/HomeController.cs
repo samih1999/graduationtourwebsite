@@ -166,8 +166,39 @@ namespace graduationtourwebsite.Controllers
                                 where role.Name == "tourguide"
                                 select user).ToListAsync();
 
-            return View(userst);
+            var plc = await _context.places.Select(plc => new place
+            {
+
+                Id = plc.Id,
+                name = plc.name,
+                aboutplace = plc.aboutplace,
+                description = plc.description,
+                moreinfoURL = plc.moreinfoURL,
+
+
+
+            }).ToListAsync();
+            var t = new Tuple<List<ApplicationUser>, List<place>>(userst, plc);
+
+            return View(t);
         }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> CreateTour(tour t)
+        {
+
+            //var item = _db.Users.Include(e=> e.Id.)
+
+
+          
+            return View();
+        }
+
+
+
+
 
         public ActionResult sami()
         {

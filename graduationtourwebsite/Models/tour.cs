@@ -15,6 +15,10 @@ namespace graduationtourwebsite.Models
         [DisplayFormat(DataFormatString = "{0:dd-MMM-yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "To Date")]
         public DateTime ToDate { get; set; }
+        public List<place> plces { get; set; }
+
+        public List<ApplicationUser> tourguides { get; set; }
+
         // public List<place> places { get; set; }
     }
 }
