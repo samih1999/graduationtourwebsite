@@ -13,16 +13,16 @@
             <div class="form-group mt-3">
               <label class="pb-2" for="Type">TourGuide</label>
               
-              <select class="form-control form-select form-control-a" id="tourguide" name="tourguide"> 
+              <select class="form-control form-select form-control-a" id="tourguide" name="tourguide" required> 
                @foreach (var user in Model.Item1)
               {
-                    <option >@user.FirstName @user.LastName</option>
+                    <option value="@user.Id" >@user.FirstName @user.LastName</option>
                     
               }
                                  
-              
-               
-                 
+             <div>
+                @ViewData["erorrmessage"];
+                </div>
                 
             
               </select>
@@ -32,7 +32,7 @@
             <div class="form-group mt-3">
               <label class="pb-2" for="city">Place</label>
               
-              <select class="form-control form-select form-control-a"  id="p" name="p">
+              <select class="form-control form-select form-control-a"  id="p" name="p" required>
                     @foreach (var i in Model.Item2)
               {
                     <option >@i.name </option >
@@ -45,8 +45,8 @@
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
-             <label for="to">Start Date:</label>
-           <input type="date" id="from" name="from">
+             <label for="to" >Start Date:</label>
+           <input type="date" id="from" name="from"  required>
             
 
             </div>
@@ -54,14 +54,50 @@
           <div class="col-md-6 mb-2">
             <div class="form-group mt-3">
               <label for="to">End Date:</label>
-         <input type="date" id="to" name="to">
+         <input type="date" id="to" name="to"  required>
            
 
             </div>
 
 
           </div>
-          
+
+          <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input name="nameoncard" type="text" id="nameoncard"  class="form-control form-control-lg form-control-a" placeholder="name on card" required>
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input name="cardnum" type="number" id="cardnum"  class="form-control form-control-lg form-control-a" placeholder="card number" required>
+                      </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input name="cvv" type="number" id="cvv"  class="form-control form-control-lg form-control-a" placeholder="cvv" required>
+                      </div>
+                    </div>
+
+
+
+                       <div class="col-md-6 mb-2">
+            <div class="form-group mt-3">
+              <label for="to">exp Date:</label>
+         <input type="date" id="exp" name="exp"  required>
+           
+
+            </div>
+
+
+          </div>
+
+
           
           <div class="col-md-12">
             <button type="submit" class="btn btn-b">Create tour</button>

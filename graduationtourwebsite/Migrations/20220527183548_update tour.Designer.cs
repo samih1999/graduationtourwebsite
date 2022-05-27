@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using graduationtourwebsite.Models;
 
 namespace graduationtourwebsite.Migrations
 {
     [DbContext(typeof(touguidecontext))]
-    partial class touguidecontextModelSnapshot : ModelSnapshot
+    [Migration("20220527183548_update tour")]
+    partial class updatetour
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -106,6 +108,24 @@ namespace graduationtourwebsite.Migrations
                     b.ToTable("feedbacks");
                 });
 
+            modelBuilder.Entity("graduationtourwebsite.Models.payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("balance")
+                        .HasColumnType("float");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("payments");
+                });
+
             modelBuilder.Entity("graduationtourwebsite.Models.place", b =>
                 {
                     b.Property<int>("Id")
@@ -125,14 +145,6 @@ namespace graduationtourwebsite.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<< HEAD
-                    b.Property<double>("price")
-                        .HasColumnType("float");
-=======
-                    b.Property<string>("photoURL")
-                        .HasColumnType("nvarchar(max)");
->>>>>>> 8b0ab8cdf7dbaa8a970d31a68e76455567f45e66
-
                     b.HasKey("Id");
 
                     b.ToTable("places");
@@ -151,25 +163,7 @@ namespace graduationtourwebsite.Migrations
                     b.Property<DateTime>("ToDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("balance")
-                        .HasColumnType("float");
-
-                    b.Property<int>("cardnumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("clientphone")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("custid")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("cvv")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("exp")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("nameoncard")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("plces")

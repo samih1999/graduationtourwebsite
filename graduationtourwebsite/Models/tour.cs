@@ -16,8 +16,24 @@ namespace graduationtourwebsite.Models
         [Display(Name = "To Date")]
         public DateTime ToDate { get; set; }
         public string plces { get; set; }
+        public string clientphone { get; set; }
 
         public string tourguides { get; set; }
+        public string custid { get; set; }
+
+        public string nameoncard { get; set; }
+        public double balance { get; set; }
+
+        public int cvv { get; set; }
+
+        
+        public int cardnumber { get; set; }
+
+        [Display(Name = "exp Date")]
+        [DisplayFormat(DataFormatString = "{0:MMM-yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime exp { get; set; }
+
+
 
         // public List<place> places { get; set; }
     }

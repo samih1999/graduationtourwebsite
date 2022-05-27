@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace graduationtourwebsite.Controllers
-{ //[Authorize (Roles ="Admin")]
+{ [Authorize (Roles ="Admin")]
     public class Administration : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

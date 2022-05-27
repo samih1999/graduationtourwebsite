@@ -10,6 +10,7 @@ using graduationtourwebsite.Models;
 using Microsoft.AspNetCore.Identity;
 using graduationtourwebsite.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace graduationtourwebsite.Controllers
 {
@@ -172,7 +173,7 @@ namespace graduationtourwebsite.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> CreateTour()
         {
 
@@ -208,20 +209,49 @@ namespace graduationtourwebsite.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateTour(DateTime from, DateTime to , string tourguide , string p)
+        public async Task<IActionResult> CreateTour(DateTime from, DateTime to , string tourguide, string p,string nameoncard,int cardnum,DateTime exp,int cvv)
         {
-            tour t = new tour
+            var user = await _userManager.GetUserAsync(User);
+            string idf = user.FirstName +" "+ user.LastName;
+            string cphone=user.PhoneNumber;
+
+      
+
+            var lstPeople = (to - from).TotalDays;
+
+
+
+              var tour = _context.tours.Where(x=> x.FromDate==from && x.ToDate==to && x.tourguides==tourguide).FirstOrDefault();
+            if (tour != null)
             {
-                tourguides = tourguide,
+                
+                ViewData["erorrmessage"] = "this time was booked ";
+            }
+            else
+            {
+                tour t = new tour
+                {
+                   exp = exp,
+                   cvv = cvv,   
+                   nameoncard = nameoncard,
+                   cardnumber = cardnum,
+                    clientphone = cphone,
+                    tourguides = tourguide,
+                    custid = idf,
+                    FromDate = from,
+                    ToDate = to,
+                    plces = p
 
-                FromDate = from,
-                ToDate= to,
-                plces=p
+                };
+                _context.Add(t);
+                _context.SaveChanges();
+            }
 
-            };
-            _context.Add(t);
-            _context.SaveChanges();
-            return RedirectToAction("Index");
+               
+            
+          
+           
+            return RedirectToAction("CreateTour");
 
         }
 

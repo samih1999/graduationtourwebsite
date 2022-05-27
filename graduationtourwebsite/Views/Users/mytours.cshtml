@@ -1,0 +1,47 @@
+﻿@model IEnumerable<tour>
+@{
+    ViewData["title"] = "Users";
+}
+
+<h1>my tours</h1>
+
+
+<table class="table table-striped mt-4">
+    <thead>
+<tr class="bg-primary text-white">
+
+    <th>id</th>
+    <th>client name</th>
+    <th>client phone</th>
+    <th>date from</th>
+    <th>date to</th>
+
+    <th>place</th>
+
+
+</tr>
+
+    </thead>
+
+    <tbody>
+       @foreach(var tour in Model){
+            <tr>
+               <td>@tour.Id</td>
+               <td>@tour.custid</td>
+               <td>@tour.clientphone</td>
+               <td>@tour.FromDate</td>
+               <td>@tour.ToDate</td>
+               
+               <td>@tour.plces</td>
+               
+            </tr>
+
+       }
+        
+
+
+
+    </tbody>
+
+
+</table>

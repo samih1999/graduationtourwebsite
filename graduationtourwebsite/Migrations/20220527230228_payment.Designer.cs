@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using graduationtourwebsite.Models;
 
 namespace graduationtourwebsite.Migrations
 {
     [DbContext(typeof(touguidecontext))]
-    partial class touguidecontextModelSnapshot : ModelSnapshot
+    [Migration("20220527230228_payment")]
+    partial class payment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -125,13 +127,8 @@ namespace graduationtourwebsite.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<< HEAD
                     b.Property<double>("price")
                         .HasColumnType("float");
-=======
-                    b.Property<string>("photoURL")
-                        .HasColumnType("nvarchar(max)");
->>>>>>> 8b0ab8cdf7dbaa8a970d31a68e76455567f45e66
 
                     b.HasKey("Id");
 
