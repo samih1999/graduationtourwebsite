@@ -125,13 +125,13 @@ namespace graduationtourwebsite.Migrations
                     b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
-<<<<<<< HEAD
+
                     b.Property<double>("price")
                         .HasColumnType("float");
-=======
+
                     b.Property<string>("photoURL")
                         .HasColumnType("nvarchar(max)");
->>>>>>> 8b0ab8cdf7dbaa8a970d31a68e76455567f45e66
+
 
                     b.HasKey("Id");
 
