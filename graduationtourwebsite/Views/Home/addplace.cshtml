@@ -1,0 +1,152 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@using Microsoft.AspNetCore.Identity;
+@inject SignInManager<ApplicationUser> signinmanager;
+@inject UserManager<ApplicationUser> usermanager;
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>EstateAgency Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="~/assets/img/favicon.png" rel="icon">
+  <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="~/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="~/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: EstateAgency - v4.7.0
+  * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+
+ @* 
+  </nav><!-- End Header/Navbar -->
+*@
+
+
+
+  <main id="main" >
+
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Sugesst place</h1>
+            
+             
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+
+    <!-- ======= Contact Single ======= -->
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+           
+      
+<div>
+
+          <div class="col-sm-12 section-t8">
+            <div class="row">
+              <div class="col-md-7">
+                <form asp-controller="Home" asp-action="addplace" method="post" role="form" >
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                       
+                        <input type="text" name="name" id="name" class="form-control form-control-lg form-control-a" placeholder="place Name" required>
+
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input name="description" type="text" id="description"  class="form-control form-control-lg form-control-a" placeholder="place description" required>
+                      </div>
+                    </div>
+                       <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <input type="text" name="moreinfoURL"  id="moreinfoURL" class="form-control form-control-lg form-control-a" placeholder="place more info URL frome wiki" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <input type="text" name="aboutplace"  id="aboutplace" class="form-control form-control-lg form-control-a" placeholder="somthing about the place" required>
+                      </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <input type="url" name="photoURL"  id="photoURL" class="form-control form-control-lg form-control-a" placeholder="add photo URL" required>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 text-center">
+                      <button type="submit" class="btn btn-a">Sugesst</button>
+                    </div>
+                  </div>
+                   
+                   
+                  
+                </form>
+                
+              </div>
+          
+            </div>
+          
+        </div>
+        
+        </div>
+        </div>
+      </div>
+    </section><!-- End Contact Single-->
+
+  </main><!-- End #main -->
+
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="~/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="~/assets/js/main.js"></script>
+
+</body>
+
+</html>
+

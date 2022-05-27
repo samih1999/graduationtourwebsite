@@ -137,7 +137,29 @@ namespace graduationtourwebsite.Controllers
 
         }
 
+        public IActionResult addplace()
+        {
 
+            return View();
+        }
+        [HttpPost]
+        public IActionResult addplace(string name, string description, string moreinfoURL, string aboutplace ,string photoURL)
+        {
+
+            place p = new place
+            {
+               name = name,
+               description = description,
+               moreinfoURL = moreinfoURL,
+               aboutplace = aboutplace,
+                photoURL = photoURL,
+
+            };
+            _context.Add(p);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
 
         public IActionResult Privacy()
         {

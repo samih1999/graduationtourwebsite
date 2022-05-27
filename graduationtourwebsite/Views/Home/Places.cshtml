@@ -1,4 +1,7 @@
-﻿@{
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     Layout = "_layout";
 }
 @model IEnumerable<graduationtourwebsite.Models.place> 
@@ -30,16 +33,25 @@
 
         <article>
 
-    <img src=~/assets/img/@p.name/1.jpg alt="petra">
+<img src=~/assets/img/@p.name/1.jpg alt=@p.name>
+
+
+    
     <div class="text">
         <br>
         <h3>@p.name</h3>
         <br>
       <h3>@p.aboutplace</h3>
       <p>@p.description</p>
+                    @if (SignInManager.IsSignedIn(User) == true && User.IsInRole("Admin"))
+                    {
+                        <a class='btn-bot'    asp-controller="Home" asp-action="addplace"  >Sugesst place</a>
+                    }
       <button class='btn-bot' onclick="window.open('@p.moreinfoURL' ,'_blank') ;">See More</button>
    @*<button  >Book now</button>*@
+
    <a class='btn-bot'    asp-controller="Home" asp-action="CreateTour"  >Create My Tour</a>
+   
   </div>
   </article>
 }
