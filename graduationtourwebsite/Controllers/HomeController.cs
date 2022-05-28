@@ -38,9 +38,24 @@ namespace graduationtourwebsite.Controllers
             _roleManager = roleManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var plc = await _context.Contacts.Select(con => new contact
+            {
+              FullName = con.FullName, 
+              Subject = con.Subject,
+              EMail = con.EMail,
+              Message = con.Message,
+              PhoneNumber = con.PhoneNumber
+                
+
+
+
+            }).ToListAsync();
+
+
+
+            return View(plc);
         }
 
         public IActionResult aboutus()
