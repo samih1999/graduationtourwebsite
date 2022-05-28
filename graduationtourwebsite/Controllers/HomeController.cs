@@ -214,14 +214,20 @@ namespace graduationtourwebsite.Controllers
             var user = await _userManager.GetUserAsync(User);
             string idf = user.FirstName +" "+ user.LastName;
             string cphone=user.PhoneNumber;
-
+            var tourguided = await _userManager.FindByIdAsync(tourguide);
+            string torgudename = tourguided.FirstName + " " + tourguided.LastName;
+            string tphone = tourguided.PhoneNumber;   
+            string cusid = user.Id;
       
 
-            var lstPeople = (to - from).TotalDays;
+            var numofdayes = (to - from).TotalDays;
 
 
 
               var tour = _context.tours.Where(x=> x.FromDate==from && x.ToDate==to && x.tourguides==tourguide).FirstOrDefault();
+
+            var placeprice=_context.places.Where(x=> x.name==p).FirstOrDefault();
+            double pprice = placeprice.price;
             if (tour != null)
             {
                 
@@ -231,17 +237,21 @@ namespace graduationtourwebsite.Controllers
             {
                 tour t = new tour
                 {
-                   exp = exp,
-                   cvv = cvv,   
-                   nameoncard = nameoncard,
-                   cardnumber = cardnum,
+                    exp = exp,
+                    cvv = cvv,
+                    nameoncard = nameoncard,
+                    cardnumber = cardnum,
                     clientphone = cphone,
                     tourguides = tourguide,
                     custid = idf,
                     FromDate = from,
                     ToDate = to,
-                    plces = p
-
+                    plces = p,
+                    tourguidename = torgudename,
+                    customerid = cusid,
+                    tourguidephone = tphone,
+                    price = numofdayes * pprice
+                    
                 };
                 _context.Add(t);
                 _context.SaveChanges();

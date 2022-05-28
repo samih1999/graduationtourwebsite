@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using graduationtourwebsite.Models;
 
 namespace graduationtourwebsite.Migrations
 {
     [DbContext(typeof(touguidecontext))]
-    partial class touguidecontextModelSnapshot : ModelSnapshot
+    [Migration("20220528124649_tour updaTE")]
+    partial class tourupdaTE
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -161,9 +163,6 @@ namespace graduationtourwebsite.Migrations
                     b.Property<string>("custid")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("customerid")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("cvv")
                         .HasColumnType("int");
 
@@ -176,13 +175,7 @@ namespace graduationtourwebsite.Migrations
                     b.Property<string>("plces")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("price")
-                        .HasColumnType("float");
-
                     b.Property<string>("tourguidename")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("tourguidephone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tourguides")

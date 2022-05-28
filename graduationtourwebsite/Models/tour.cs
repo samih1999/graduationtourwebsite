@@ -19,10 +19,15 @@ namespace graduationtourwebsite.Models
         public string clientphone { get; set; }
 
         public string tourguides { get; set; }
+        
+        public string tourguidename { get; set; }
+        public string tourguidephone { get; set; }
         public string custid { get; set; }
+        public string customerid { get; set; }
 
         public string nameoncard { get; set; }
         public double balance { get; set; }
+        public double price { get; set; }
 
         public int cvv { get; set; }
 

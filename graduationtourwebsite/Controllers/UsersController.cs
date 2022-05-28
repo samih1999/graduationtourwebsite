@@ -101,7 +101,9 @@ namespace graduationtourwebsite.Controllers
                 ToDate = tour.ToDate, 
               plces = tour.plces,
                 tourguides = tour.tourguides,
-                custid=tour.custid
+                custid=tour.custid,
+                tourguidename=tour.tourguidename
+                
                 
 
             }).ToListAsync();
@@ -111,15 +113,30 @@ namespace graduationtourwebsite.Controllers
 
 
 
-        //public async Task<IActionResult> mytoursuser()
-        //{
+        public async Task<IActionResult> mytoursuser()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            string idf = user.Id;
 
-        //    var user = await _userManager.GetUserAsync(User);
-        //    var idf = user.Id;
-        //    var tour =_context.tours.Where(x=>x.custid == idf).FirstOrDefault();
+            var plc = await _context.tours.Select(tour => new tour
+            {
+                clientphone = tour.clientphone,
+                Id = tour.Id,
+                FromDate = tour.FromDate,
+                ToDate = tour.ToDate,
+                plces = tour.plces,
+                tourguides = tour.tourguides,
+                custid = tour.custid,
+                tourguidename = tour.tourguidename,
+                customerid=tour.customerid,
+                tourguidephone=tour.tourguidephone,
+                price=tour.price
+                
 
-        //    return View(tour);  
 
-        //}
+            }).ToListAsync();
+            return View(plc.Where(c => c.customerid == idf).ToList());
+
+        }
     }
 }

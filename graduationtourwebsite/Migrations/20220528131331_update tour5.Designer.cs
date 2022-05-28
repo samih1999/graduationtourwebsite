@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using graduationtourwebsite.Models;
 
 namespace graduationtourwebsite.Migrations
 {
     [DbContext(typeof(touguidecontext))]
-    partial class touguidecontextModelSnapshot : ModelSnapshot
+    [Migration("20220528131331_update tour5")]
+    partial class updatetour5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,9 +177,6 @@ namespace graduationtourwebsite.Migrations
 
                     b.Property<string>("plces")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("price")
-                        .HasColumnType("float");
 
                     b.Property<string>("tourguidename")
                         .HasColumnType("nvarchar(max)");

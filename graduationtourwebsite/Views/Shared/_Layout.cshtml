@@ -75,6 +75,13 @@
                                 <a class="nav-link " asp-controller="Users" asp-action="mytours">my scedule</a>
           </li>}
 
+           @if (SignInManager.IsSignedIn(User) == true && User.IsInRole("user"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link " asp-controller="Users" asp-action="mytoursuser">my tours</a>
+          </li>}
+
+
           <li class="nav-item">
             <a class="nav-link "asp-controller="Home" asp-action="aboutus">About</a>
           </li>
