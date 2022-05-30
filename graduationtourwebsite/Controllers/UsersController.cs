@@ -128,15 +128,25 @@ namespace graduationtourwebsite.Controllers
                 tourguides = tour.tourguides,
                 custid = tour.custid,
                 tourguidename = tour.tourguidename,
-                customerid=tour.customerid,
-                tourguidephone=tour.tourguidephone,
-                price=tour.price
-                
+                customerid = tour.customerid,
+                tourguidephone = tour.tourguidephone,
+                price = tour.price,
+                status=tour.status,
+                balance = tour.balance,
+                priceafter=tour.priceafter
+            
+
 
 
             }).ToListAsync();
             return View(plc.Where(c => c.customerid == idf).ToList());
 
         }
+
+       
+
+
+
+
     }
 }

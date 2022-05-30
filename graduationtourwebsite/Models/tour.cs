@@ -38,6 +38,9 @@ namespace graduationtourwebsite.Models
         [DisplayFormat(DataFormatString = "{0:MMM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime exp { get; set; }
 
+        public double priceafter { get; set; }
+        public string status { get; set; }
+
 
 
         // public List<place> places { get; set; }

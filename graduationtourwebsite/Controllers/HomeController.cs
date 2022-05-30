@@ -233,16 +233,20 @@ namespace graduationtourwebsite.Controllers
             string torgudename = tourguided.FirstName + " " + tourguided.LastName;
             string tphone = tourguided.PhoneNumber;   
             string cusid = user.Id;
-      
+           
+
+
 
             var numofdayes = (to - from).TotalDays;
 
 
 
               var tour = _context.tours.Where(x=> x.FromDate==from && x.ToDate==to && x.tourguides==tourguide).FirstOrDefault();
+            string co = "not confirmed";
 
             var placeprice=_context.places.Where(x=> x.name==p).FirstOrDefault();
             double pprice = placeprice.price;
+           
             if (tour != null)
             {
                 
@@ -265,7 +269,10 @@ namespace graduationtourwebsite.Controllers
                     tourguidename = torgudename,
                     customerid = cusid,
                     tourguidephone = tphone,
-                    price = numofdayes * pprice
+                    price = numofdayes * pprice,
+                    status=co
+                    
+                  
                     
                 };
                 _context.Add(t);

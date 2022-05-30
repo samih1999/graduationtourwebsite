@@ -1,0 +1,59 @@
+﻿@model graduationtourwebsite.Models.tour
+
+@{
+    ViewData["Title"] = "pay";
+}
+
+<h2>pay</h2>
+
+<h3>Are you sure you want to pay this?</h3>
+<div>
+    <h4>tour</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FromDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FromDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ToDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ToDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.plces)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.plces)
+        </dd>
+    
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.tourguidename)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tourguidename)
+        </dd>
+       
+      
+     
+  
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt>
+  
+    </dl>
+    
+    <form  asp-action="pay">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="pay" class="btn btn-default" /> |
+        <a asp-controller="users" asp-action="mytoursuser">Back to List</a>
+    </form>
+</div>
