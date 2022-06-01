@@ -2,7 +2,10 @@
 
 @model Tuple<List<ApplicationUser>, List<place>>
  
-
+@{
+    Layout = "_layout";
+    ViewData["Title"] = "crate tour";
+}
 
 <div class="title-box-d">
       <h3 class="title-d">Create Tour</h3>
@@ -97,14 +100,6 @@
 
           </div>
 
-        @if (ViewBag.message != null)
-        {
-            <script type="text/javascript">
-window.onload = function() {
-    alert("@ViewBag.message");
-};
-</script>
-        }
 
           <div class="col-md-12">
             <button type="submit" class="btn btn-b">Create tour</button>
