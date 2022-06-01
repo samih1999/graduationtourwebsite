@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using graduationtourwebsite.Models;
@@ -49,6 +50,10 @@ namespace graduationtourwebsite.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+
+            [Display(Name = "profile picture")]
+            public byte[] profilepicture { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -62,7 +67,8 @@ namespace graduationtourwebsite.Areas.Identity.Pages.Account.Manage
             {
                 FirstName=user.FirstName,
                 LastName=user.LastName,
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                profilepicture=user.profilepicture
             };
         }
 
@@ -119,7 +125,16 @@ namespace graduationtourwebsite.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
-
+            if (Request.Form.Files.Count > 0)
+            {
+                var file = Request.Form.Files.FirstOrDefault();
+                using(var datastream=new MemoryStream())
+                {
+                    await file.CopyToAsync(datastream);
+                    user.profilepicture = datastream.ToArray();
+                }
+                await _userManager.UpdateAsync(user);
+            }
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";
             return RedirectToPage();
