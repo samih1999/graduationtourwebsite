@@ -96,6 +96,42 @@ namespace graduationtourwebsite.Controllers
             return View(trgr);
         }
 
+
+        public async Task<IActionResult> Delete(string? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tour = await _db.Users
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (tour == null)
+            {
+                return NotFound();
+            }
+
+            return View(tour);
+        }
+
+        // POST: tours/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(string id)
+        {
+            var tour = await _db.Users.FindAsync(id);
+            _db.Users.Remove(tour);
+            await _db.SaveChangesAsync();
+            return RedirectToAction("index", "Users");
+        }
+
+        private bool tourExists(string id)
+        {
+            return _db.Users.Any(e => e.Id == id);
+        }
+
+
+
     }
 
 
