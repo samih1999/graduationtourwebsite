@@ -66,38 +66,38 @@
            @if (SignInManager.IsSignedIn(User) == true && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link " asp-controller="Administration" asp-action="Index_admin">dashboard</a>
+                                <a class="nav-link " asp-controller="Administration" asp-action="Index_admin">Admin Dashboard</a>
           </li>}
 
            @if (SignInManager.IsSignedIn(User) == true && User.IsInRole("tourguide"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link " asp-controller="Users" asp-action="mytours">my scedule</a>
+                                <a class="nav-link " asp-controller="Users" asp-action="mytours">Work Schedule</a>
           </li>}
 
            @if (SignInManager.IsSignedIn(User) == true && User.IsInRole("user"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link " asp-controller="Users" asp-action="mytoursuser">my tours</a>
+                                <a class="nav-link " asp-controller="Users" asp-action="mytoursuser">My Tours</a>
           </li>}
 
 
           <li class="nav-item">
-            <a class="nav-link "asp-controller="Home" asp-action="aboutus">About</a>
+            <a class="nav-link "asp-controller="Home" asp-action="aboutus">About Us</a>
           </li>
 
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tour</a>
             <div class="dropdown-menu">
                              
-                                <a class="dropdown-item " asp-controller="Home" asp-action="Places">Best Places</a>
-                                <a class="dropdown-item "    asp-controller="Home" asp-action="CreateTour"  >Create My Tour</a>
-              <a class="dropdown-item " asp-controller="Home" asp-action="ourtourguides">Our Tour Guides</a>
-              <a class="dropdown-item " asp-controller="Home" asp-action="TG_REG">Be Tour Guide</a> 
+                                <a class="dropdown-item " asp-controller="Home" asp-action="Places">Our Places</a>
+                                <a class="dropdown-item "    asp-controller="Home" asp-action="CreateTour"  >Create Tour</a>
+              <a class="dropdown-item " asp-controller="Home" asp-action="ourtourguides">Our TourGuides</a>
+              <a class="dropdown-item " asp-controller="Home" asp-action="TG_REG">Be TourGuide</a> 
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link asp-controller="Home" asp-action="contactus">Contact Us</a>
+            <a class="nav-link asp-controller="Home" asp-action="contactus">Your Feedback</a>
           </li>
 
         </ul>

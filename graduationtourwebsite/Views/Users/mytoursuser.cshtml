@@ -11,16 +11,16 @@
 <tr class="bg-primary text-white">
 
   
-    <th>tourguide name</th>
-    <th>tourguide phone</th>
-    <th>date from</th>
-    <th>date to</th>
-    <th>place</th>
-    <th>price</th>
-    <th>  pay  </th>
-    <th>status</th>
-    <th>blance</th>
-    <th>operation</th>
+    <th>TG Name</th>
+    <th>TG PhoneNUM</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Place</th>
+    <th>Tour Price</th>
+    <th>Pay</th>
+    <th>Payment Status</th>
+    <th>Blance</th>
+    <th>Operation</th>
     
   
 
@@ -40,7 +40,7 @@
                
                <td>@tour.plces</td>
                <td>@tour.price</td>
-                <td> <a asp-action="pay"   asp-controller="tours" asp-route-id="@tour.Id">pays</a></td>
+                <td> <a asp-action="pay"   asp-controller="tours" asp-route-id="@tour.Id">Pay</a></td>
                <td>@tour.status</td>
                <td>@tour.balance</td>
              <td>
