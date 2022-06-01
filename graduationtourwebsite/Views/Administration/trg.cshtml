@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TourGuideREGMod>
+@{
+    ViewData["title"] = "Manage tourguides";
+}
+
+<h1>Manage tourguides requests</h1>
+
+<form method="post">
+
+   
+
+
+
+<table class="table table-striped mt-4">
+    <thead>
+<tr class="bg-primary text-white">
+
+  
+    <th>first name</th>
+    <th>last phone</th>
+    <th>email</th>
+    <th>cv link</th>
+
+
+
+</tr>
+
+    </thead>
+
+    <tbody>
+       @foreach(var tourguide in Model){
+            <tr>
+              
+               <td>@tourguide.FirstName</td>
+               <td>@tourguide.LastName</td>
+               <td>@tourguide.EMail</td>
+               <td>@tourguide.CvLink/td>
+              
+               
+            </tr>
+
+       }
+        
+
+
+
+    </tbody>
+
+
+</table>
+
+
+</form>
