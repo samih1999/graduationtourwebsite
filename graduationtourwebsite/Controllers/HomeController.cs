@@ -249,8 +249,9 @@ namespace graduationtourwebsite.Controllers
            
             if (tour != null)
             {
-                
-                ViewData["erorrmessage"] = "this time was booked ";
+
+                ViewBag.message = string.Format("fuck u");
+                    
             }
             else
             {
@@ -270,7 +271,8 @@ namespace graduationtourwebsite.Controllers
                     customerid = cusid,
                     tourguidephone = tphone,
                     price = numofdayes * pprice,
-                    status=co
+                    status=co,
+                    balance=500
                     
                   
                     
@@ -279,11 +281,11 @@ namespace graduationtourwebsite.Controllers
                 _context.SaveChanges();
             }
 
-               
-            
-          
-           
-            return RedirectToAction("CreateTour");
+
+
+
+
+            return RedirectToAction("mytoursuser", "Users");
 
         }
 
