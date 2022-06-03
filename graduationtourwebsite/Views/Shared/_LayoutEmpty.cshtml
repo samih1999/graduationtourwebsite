@@ -1,7 +1,7 @@
 ﻿<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lumino - Dashboard</title>
+	
 	<link href="~/Admin_Bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="~/Admin_Bootstrap/css/font-awesome.min.css" rel="stylesheet">
 	<link href="~/Admin_Bootstrap/css/datepicker3.css" rel="stylesheet">
@@ -14,19 +14,4 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 </head>
-@RenderBody();
-	<div class="panel-footer">
-						<div class="input-group">
-							<input id="btn-input" type="text" class="form-control input-md" placeholder="Add new task" /><span class="input-group-btn">
-								<button class="btn btn-primary btn-md" id="btn-todo">Add</button>
-						</span></div>
-					</div>
-						<div class="panel-footer">
-						<div class="input-group">
-							<input id="btn-input" type="text" class="form-control input-md" placeholder="Type your message here..." /><span class="input-group-btn">
-								<button class="btn btn-primary btn-md" id="btn-chat">Send</button>
-						</span></div>
-					</div>
-					
- <script src="~/js/site.js" asp-append-version="true"></script>
-@await Component.InvokeAsync("Notyf") 
+@RenderBody()
