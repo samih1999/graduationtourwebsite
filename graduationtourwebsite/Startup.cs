@@ -14,6 +14,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using graduationtourwebsite.Models;
+using AspNetCoreHero.ToastNotification;
+using AspNetCoreHero.ToastNotification.Extensions;
+
 namespace graduationtourwebsite
 {
     public class Startup
@@ -42,13 +45,21 @@ namespace graduationtourwebsite
 
 
 
-            services.AddIdentity<ApplicationUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders()
             .AddDefaultUI()
                 .AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
 
+            services.AddNotyf(config => { config.DurationInSeconds = 10; config.IsDismissable = true; config.Position = NotyfPosition.BottomRight; });
+
+          
+
+
+         
+
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,6 +67,7 @@ namespace graduationtourwebsite
         {
             if (env.IsDevelopment())
             {
+                
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
             }
@@ -67,12 +79,12 @@ namespace graduationtourwebsite
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+           
             app.UseRouting();
-
+            
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseNotyf();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

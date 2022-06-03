@@ -11,12 +11,14 @@ using Microsoft.AspNetCore.Identity;
 using graduationtourwebsite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using AspNetCoreHero.ToastNotification.Abstractions;
 
 namespace graduationtourwebsite.Controllers
 {
 
     public class HomeController : Controller
     {
+        private readonly INotyfService _notyf;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
@@ -29,12 +31,13 @@ namespace graduationtourwebsite.Controllers
         touguidecontext _context;
         ApplicationDbContext _db;
 
-        public HomeController(ILogger<HomeController> logger, touguidecontext tor, ApplicationDbContext a, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public HomeController(ILogger<HomeController> logger, touguidecontext tor,INotyfService notyf, ApplicationDbContext a, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _db = a;
             _context = tor;
             _logger = logger;
             _userManager = userManager;
+            _notyf= notyf;
             _roleManager = roleManager;
         }
 
@@ -234,7 +237,11 @@ namespace graduationtourwebsite.Controllers
             string tphone = tourguided.PhoneNumber;   
             string cusid = user.Id;
            
-
+            if(from.Date > to.Date)
+            {
+                _notyf.Error("enter valid dates ");
+                return RedirectToAction("createtour", "home");
+            }
 
 
             var numofdayes = (to - from).TotalDays;
@@ -249,9 +256,10 @@ namespace graduationtourwebsite.Controllers
            
             if (tour != null)
             {
-
-                ViewBag.message = string.Format("fuck u");
-                    
+                _notyf.Error("pick another tour guide or another time ");
+                
+                return RedirectToAction("createtour", "home");
+              
             }
             else
             {
@@ -273,19 +281,20 @@ namespace graduationtourwebsite.Controllers
                     price = numofdayes * pprice,
                     status=co,
                     balance=500
-                    
-                  
-                    
-                };
+          
+
+
+            }; 
+                _notyf.Success("Successfully created");
                 _context.Add(t);
-                _context.SaveChanges();
+                _context.SaveChanges();return RedirectToAction("mytoursuser", "Users");
             }
 
 
+           
 
 
 
-            return RedirectToAction("mytoursuser", "Users");
 
         }
 
