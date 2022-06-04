@@ -10,13 +10,7 @@
 </head>
 <body>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div><center><h3>The best tour guide you can have in Jordan</h3></center></div>
+<div><center><h3=>The best tour guide you can have in Jordan</h3></center></div>
 <br>
 <br>
 <br>
@@ -43,9 +37,9 @@
         <article>
               @if (user.profilepicture == null)
                                 {
-                                     <img src="~/usersimage/R.png" alt="" class="img-d img-fluid">
+                                     <img src="~/usersimage/R.png" alt="" class="img-d img-fluid" style="height:200px; width:200px; object-fit:cover; ">
                                 }else{
-                                <img src="data:image/*;base64,@(Convert.ToBase64String(user.profilepicture ))" alt="" class="img-d img-fluid">}
+                                <img src="data:image/*;base64,@(Convert.ToBase64String(user.profilepicture ))" alt="" class="img-d img-fluid" style="height:200px; width:200px; object-fit:cover; "> }
       
     <div class="text">
         <br>

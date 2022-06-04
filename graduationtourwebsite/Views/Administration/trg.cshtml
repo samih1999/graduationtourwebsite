@@ -45,7 +45,7 @@
 		<div class="divider"></div>
 		<ul class="nav menu">
 			<li ><a asp-controller="Administration" asp-action="Index_admin"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a asp-controller="Administration" asp-action="widgets"><em class="fa fa-calendar">&nbsp;</em> Widgets</a></li>
+
 			<li ><a asp-controller="Administration" asp-action="CreateRole"><em class="fa fa-toggle-off">&nbsp;</em> Create Role</a></li>
 			<li><a asp-controller="Administration" asp-action="Index"><em class="fa fa-toggle-off">&nbsp;</em>View Roles</a></li>
 			<li><a asp-controller="Users" asp-action="Index"><em class="fa fa-clone">&nbsp;</em> All Users</a></li>
@@ -106,9 +106,9 @@
                <td>@tourguide.LastName</td>
                <td>@tourguide.EMail</td>
                <td>@tourguide.CvLink/td>
-              <td>
-                   <a class=" btn btn-primary" href="/Users/ManageRoles?userId=0c8f619a-030c-4b44-97af-55519a38655c">manage</a>
-               </td>
+            <td>
+                                    <a class=" btn btn-primary" asp-controller="Users" asp-action="ManageRoles" asp-route-userId="@tourguide.Id">manage</a>
+                                </td>
                
             </tr>
 

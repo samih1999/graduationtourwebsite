@@ -77,6 +77,15 @@ namespace graduationtourwebsite.Controllers
                                where role.Name == "tourguide"
                                select user).ToListAsync();
 
+
+            var usersd = await (from user in _db.Users
+                                join userRole in _db.UserRoles
+                                on user.Id equals userRole.UserId
+                                join role in _db.Roles
+                                on userRole.RoleId equals role.Id
+                                where role.Name == "Admin"
+                                select user).ToListAsync();
+
             var con = await _context.Contacts.Select(con => new contact
             {
                 FullName = con.FullName,
@@ -91,16 +100,12 @@ namespace graduationtourwebsite.Controllers
 
             }).ToListAsync();
 
-            var t = new Tuple<List<ApplicationUser>, List<contact>>(userst, con);
+            var t = new Tuple<List<ApplicationUser>, List<ApplicationUser>, List<contact>>(userst,usersd, con);
 
             return View(t);
         }
 
 
-        public IActionResult widgets()
-        {
-            return View();
-        }
 
 
         public async Task<IActionResult> trg()
