@@ -216,8 +216,8 @@ namespace graduationtourwebsite.Controllers
                                 on userRole.RoleId equals role.Id
                                 where role.Name == "tourguide"
                                 select user).ToListAsync();
-
-            var plc = await _context.places.Select(plc => new place
+        
+                var plc = await _context.places.Select(plc => new place
             {
 
                 Id = plc.Id,
