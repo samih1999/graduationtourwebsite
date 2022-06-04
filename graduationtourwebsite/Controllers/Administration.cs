@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -64,10 +66,34 @@ namespace graduationtourwebsite.Controllers
             var roles = await _roleManager.Roles.ToListAsync();
             return View(roles);
         }
-        public IActionResult Index_admin()
+        public async Task<IActionResult> Index_admin()
         {
-              int y = _userManager.Users.Count();
-            return View(y);
+            var Users = _userManager.Users;
+            var userst = await(from user in _db.Users
+                               join userRole in _db.UserRoles
+                               on user.Id equals userRole.UserId
+                               join role in _db.Roles
+                               on userRole.RoleId equals role.Id
+                               where role.Name == "tourguide"
+                               select user).ToListAsync();
+
+            var con = await _context.Contacts.Select(con => new contact
+            {
+                FullName = con.FullName,
+                Subject = con.Subject,
+                EMail = con.EMail,
+                Message = con.Message,
+                PhoneNumber = con.PhoneNumber
+
+
+
+
+
+            }).ToListAsync();
+
+            var t = new Tuple<List<ApplicationUser>, List<contact>>(userst, con);
+
+            return View(t);
         }
 
 
