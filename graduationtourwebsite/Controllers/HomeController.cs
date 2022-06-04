@@ -43,22 +43,32 @@ namespace graduationtourwebsite.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var plc = await _context.Contacts.Select(con => new contact
+            var Users = _userManager.Users;
+            var userst = await (from user in _db.Users
+                                join userRole in _db.UserRoles
+                                on user.Id equals userRole.UserId
+                                join role in _db.Roles
+                                on userRole.RoleId equals role.Id
+                                where role.Name == "tourguide"
+                                select user).ToListAsync();
+
+            var con = await _context.Contacts.Select(con => new contact
             {
               FullName = con.FullName, 
               Subject = con.Subject,
               EMail = con.EMail,
               Message = con.Message,
               PhoneNumber = con.PhoneNumber
-                
 
 
 
-            }).ToListAsync();
+             
 
+        }).ToListAsync();
 
+            var t = new Tuple<List<ApplicationUser>, List<contact>>(userst, con);
 
-            return View(plc);
+            return View(t);
         }
 
         public IActionResult aboutus()

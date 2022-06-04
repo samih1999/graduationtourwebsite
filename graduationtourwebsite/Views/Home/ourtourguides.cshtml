@@ -41,7 +41,12 @@
               {
                     
         <article>
-
+              @if (user.profilepicture == null)
+                                {
+                                     <img src="~/usersimage/R.png" alt="" class="img-d img-fluid">
+                                }else{
+                                <img src="data:image/*;base64,@(Convert.ToBase64String(user.profilepicture ))" alt="" class="img-d img-fluid">}
+      
     <div class="text">
         <br>
         <h3>@user.FirstName @user.LastName</h3>
