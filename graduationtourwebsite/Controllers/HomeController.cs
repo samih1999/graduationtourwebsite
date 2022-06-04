@@ -126,8 +126,12 @@ namespace graduationtourwebsite.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult TG_REG(string firstname, string lastname, string email, string phonenumber, string cv)
+        public async Task<IActionResult>  TG_REG(string firstname, string lastname, string email, string phonenumber, string cv)
         {
+            var user = await _userManager.GetUserAsync(User);
+            
+           
+            string cusid = user.Id;
             TourGuideREGMod TGREG = new TourGuideREGMod()
             {
                 FirstName = firstname,
@@ -135,10 +139,12 @@ namespace graduationtourwebsite.Controllers
                 EMail = email,
                 PhoneNumber = phonenumber,
                 CvLink = cv,
+                custid = cusid
 
             };
             _context.Add(TGREG);
             _context.SaveChanges();
+            _notyf.Success("request sent");
             return RedirectToAction("Index");
 
         }

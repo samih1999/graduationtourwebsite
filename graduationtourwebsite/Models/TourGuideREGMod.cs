@@ -10,5 +10,6 @@
         public string PhoneNumber { get; set; }
         public string Feedback { get; set; }
         public string Rate { get; set; }
+        public string custid { get; set; }
     }
 }

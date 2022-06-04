@@ -120,7 +120,8 @@ namespace graduationtourwebsite.Controllers
                Feedback=TourGuideREGMod.Feedback,
                PhoneNumber=TourGuideREGMod.PhoneNumber,
                Id    =TourGuideREGMod.Id,
-               Rate =TourGuideREGMod.Rate
+               Rate =TourGuideREGMod.Rate,
+               custid=TourGuideREGMod.custid
 
             }).ToListAsync();
 
