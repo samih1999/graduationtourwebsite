@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace graduationtourwebsite.Controllers
 {
-   // [Authorize(Roles = "Admin")]
+    
     public class UsersController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -26,7 +26,7 @@ namespace graduationtourwebsite.Controllers
             _db = a;
             _context = tor;
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var users = await _userManager.Users.Select(user => new UserviewModel
@@ -42,7 +42,7 @@ namespace graduationtourwebsite.Controllers
 
             return View(users);
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ManageRoles(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
@@ -62,7 +62,7 @@ namespace graduationtourwebsite.Controllers
             };
             return View(viewmodel);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ManageRoles(UserRoleviewmodel model)
@@ -87,7 +87,7 @@ namespace graduationtourwebsite.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        [Authorize(Roles = "tourguide")]
         public async Task<IActionResult> mytours()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -112,7 +112,7 @@ namespace graduationtourwebsite.Controllers
 
 
 
-
+        [Authorize(Roles = "user")]
         public async Task<IActionResult> mytoursuser()
         {
             var user = await _userManager.GetUserAsync(User);

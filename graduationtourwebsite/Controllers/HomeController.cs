@@ -120,11 +120,13 @@ namespace graduationtourwebsite.Controllers
 
             return View();
         }
+        [Authorize(Roles = "user")]
         public IActionResult TG_REG()
         {
 
             return View();
         }
+        [Authorize(Roles = "user")]
         [HttpPost]
         public async Task<IActionResult>  TG_REG(string firstname, string lastname, string email, string phonenumber, string cv)
         {
@@ -148,11 +150,13 @@ namespace graduationtourwebsite.Controllers
             return RedirectToAction("Index");
 
         }
+        [Authorize(Roles = "user,tourguide")]
         public IActionResult contactus()
         {
 
             return View();
         }
+        [Authorize(Roles = "user,tourguide")]
         [HttpPost]
         public IActionResult contactus(string? name, string subject, string email, string message, string phonenumber)
         {
@@ -207,7 +211,7 @@ namespace graduationtourwebsite.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [Authorize(Roles = "user")]
+        [Authorize(Roles = "user,Admin,tourguide")]
         public async Task<IActionResult> CreateTour()
         {
 
@@ -241,7 +245,7 @@ namespace graduationtourwebsite.Controllers
         }
 
 
-
+        [Authorize(Roles = "user,Admin,tourguide")]
         [HttpPost]
         public async Task<IActionResult> CreateTour(DateTime from, DateTime to , string tourguide, string p,string nameoncard,int cardnum,DateTime exp,int cvv)
         {

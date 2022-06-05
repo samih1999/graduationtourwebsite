@@ -91,10 +91,13 @@
             <div class="dropdown-menu">
                              
                                 <a class="dropdown-item " asp-controller="Home" asp-action="Places">Our Places</a>
-                                <a class="dropdown-item "    asp-controller="Home" asp-action="CreateTour"  >Create Tour</a>
+                                <a id="sami1" name="createtour" class="dropdown-item "    asp-controller="Home" asp-action="CreateTour"  >Create Tour</a>
               <a class="dropdown-item " asp-controller="Home" asp-action="ourtourguides">Our TourGuides</a>
-              <a class="dropdown-item " asp-controller="Home" asp-action="TG_REG">Be TourGuide</a> 
-            </div>
+                                @if (SignInManager.IsSignedIn(User) == true && User.IsInRole("user"))
+                                {
+                                    <a class="dropdown-item " asp-controller="Home" asp-action="TG_REG">Be TourGuide</a>
+                                }
+                            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link asp-controller="Home" asp-action="contactus">Your Feedback</a>
